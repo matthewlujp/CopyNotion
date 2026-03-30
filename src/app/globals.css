@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --notion-bg: #ffffff;
+  --notion-bg-secondary: #f7f6f3;
+  --notion-bg-hover: #efefef;
+  --notion-text: #37352f;
+  --notion-text-secondary: #787774;
+  --notion-text-tertiary: #b4b4b0;
+  --notion-border: #e9e9e7;
+  --notion-accent: #2eaadc;
+  --notion-accent-hover: #2496c4;
+  --notion-sidebar: #f7f6f3;
+  --notion-sidebar-hover: #ebebea;
+}
+
+.dark {
+  --notion-bg: #191919;
+  --notion-bg-secondary: #202020;
+  --notion-bg-hover: #2f2f2f;
+  --notion-text: #e6e6e5;
+  --notion-text-secondary: #9b9a97;
+  --notion-text-tertiary: #5a5a58;
+  --notion-border: #373737;
+  --notion-accent: #2eaadc;
+  --notion-accent-hover: #51b9e0;
+  --notion-sidebar: #202020;
+  --notion-sidebar-hover: #2f2f2f;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+body {
+  color: var(--notion-text);
+  background: var(--notion-bg);
+}
+
+::selection {
+  background-color: rgba(46, 170, 220, 0.2);
+}
+
+/* Smooth transitions */
+.dark body,
+body {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--notion-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--notion-text-tertiary);
+}
+
+/* BlockNote overrides to match Notion */
+.bn-container {
+  --bn-colors-editor-background: var(--notion-bg) !important;
+  --bn-colors-editor-text: var(--notion-text) !important;
+  font-family: inherit !important;
+}
+
+.bn-editor {
+  padding: 0 !important;
+}
+
+/* Page title placeholder */
+textarea::placeholder {
+  color: var(--notion-text-tertiary);
+}
+
+/* Focus ring on interactive elements */
+button:focus-visible {
+  outline: 2px solid var(--notion-accent);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .max-w-page-content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
